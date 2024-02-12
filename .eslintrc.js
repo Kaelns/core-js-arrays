@@ -21,6 +21,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'no-param-reassign': 'off',
   },
   plugins: ['prettier'],
   noInlineConfig: true,
