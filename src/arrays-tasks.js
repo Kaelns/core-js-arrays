@@ -319,8 +319,7 @@ function selectMany(arr, childrenSelector) {
  */
 function calculateBalance(arr) {
   return arr.reduce((acc, el) => {
-    acc += el.reduce((acc2, val) => acc2 - val);
-    return acc;
+    return acc + el.reduce((acc2, val) => acc2 - val);
   }, 0);
 }
 
@@ -505,16 +504,17 @@ function findCommonElements(arr1, arr2) {
 function findLongestIncreasingSubsequence(nums) {
   let combo = 0;
   nums.reduce((acc, el, i) => {
+    let temp = acc;
     if (nums[i + 1] && el < nums[i + 1]) {
-      if (!acc) acc = 1;
-      acc += 1;
+      if (!acc) temp = 1;
+      temp += 1;
     } else {
-      acc = 0;
+      temp = 0;
     }
 
     if (acc > combo) combo = acc;
 
-    return acc;
+    return temp;
   }, 0);
 
   return combo;
